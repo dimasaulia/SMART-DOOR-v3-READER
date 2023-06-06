@@ -1,0 +1,3 @@
+#define API_ID "cl9xxy39x0000cklku2klje55"
+#define API_KEY "WCPaDR1F2cwSUMPWuXDm13JMYU-NeWO1"
+#define DEVICE_SEC_PIN "869015"

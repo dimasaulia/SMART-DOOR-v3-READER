@@ -1,0 +1,4 @@
+{
+    "cmake.sourceDirectory": "${workspaceFolder}/.pio/libdeps/esp32doit-devkit-v1/ArduinoJson",
+    "cmake.configureOnOpen": false
+}

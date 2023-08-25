@@ -12,7 +12,7 @@
 #include <prodSecret.h>
 
 // INFO: Variable declaration
-#define I2C_KEYPAD_ADDR 0x27 // 0x20 //0x27 or 0x20
+#define I2C_KEYPAD_ADDR 0x20 // 0x20 //0x27 or 0x20
 #define SS_RFID_PIN 15
 #define RST_RFID_PIN 4
 #define TOUCH 33 // 25
@@ -34,19 +34,19 @@ unsigned long messageTimestamp = 0;
 //   {'A', '3', '2', '1'},
 // };
 // GEDUNG Q
-char keys[ROWS][COLS] = {
-    {'D', 'C', 'B', 'A'},
-    {'#', '9', '6', '3'},
-    {'0', '8', '5', '2'},
-    {'*', '7', '4', '1'},
-};
-// PCB
-// char keys [ROWS] [COLS] = {
-//   {'1', '4', '7', '*'},
-//   {'2', '5', '8', '0'},
-//   {'3', '6', '9', '#'},
-//   {'A', 'B', 'C', 'D'},
+// char keys[ROWS][COLS] = {
+//     {'D', 'C', 'B', 'A'},
+//     {'#', '9', '6', '3'},
+//     {'0', '8', '5', '2'},
+//     {'*', '7', '4', '1'},
 // };
+// PCB
+char keys [ROWS] [COLS] = {
+  {'1', '4', '7', '*'},
+  {'2', '5', '8', '0'},
+  {'3', '6', '9', '#'},
+  {'A', 'B', 'C', 'D'},
+};
 byte rowPins[ROWS] = {0, 1, 2, 3};
 byte colPins[COLS] = {4, 5, 6, 7};
 // byte rowPins [ROWS] = {4, 5, 6, 7};
@@ -232,20 +232,20 @@ void setup() {
 
 void loop() {
   char key = keypad.getKey();
-  Serial.println(key);
+  // Serial.println(key);
   // INFO: Touch Sensor
-  if (analogRead(TOUCH) > 1000) {
-    digitalWrite(RELAY, LOW);
-    BUZZER_ON();
-    Serial2.print("ALT#OPENING FROM INSIDE!");
-    Serial.println("ALT#OPENING FROM INSIDE!");
-    // alert("OPENING\n FROM\n INSIDE");
-    delay(DELAY_TIME);
-    Serial.println("DIS#" + connectionStatus + "#" + DEVICE_ID + "#" +
-                   deviceMode + "#" + String(pinContainer.length()) + "!");
-    Serial2.print("DIS#" + connectionStatus + "#" + DEVICE_ID + "#" +
-                  deviceMode + "#" + String(pinContainer.length()) + "!");
-  }
+  // if (analogRead(TOUCH) > 1000) {
+  //   digitalWrite(RELAY, LOW);
+  //   BUZZER_ON();
+  //   Serial2.print("ALT#OPENING FROM INSIDE!");
+  //   Serial.println("ALT#OPENING FROM INSIDE!");
+  //   // alert("OPENING\n FROM\n INSIDE");
+  //   delay(DELAY_TIME);
+  //   Serial.println("DIS#" + connectionStatus + "#" + DEVICE_ID + "#" +
+  //                  deviceMode + "#" + String(pinContainer.length()) + "!");
+  //   Serial2.print("DIS#" + connectionStatus + "#" + DEVICE_ID + "#" +
+  //                 deviceMode + "#" + String(pinContainer.length()) + "!");
+  // }
   // Serial.print("TOUCH: ");
   // Serial.println(analogRead(TOUCH));
 
